@@ -1,0 +1,179 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x", "darwin", "debian-openssl-1.1.x", "linux-musl"]
+}
+
+datasource db {
+  provider = "postgresql"
+  // DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public"
+  url      = "postgresql://postgres:hohoho@postgres:5432/nestjs?schema=public"
+}
+
+// changer l'id par l'id utilisateur que nous donne l'api 42. ou autre solution creer un idUser user unique qui sera l'id de l'utilisateur pour le reconnaitre
+
+model User {
+  id Int @id @default(autoincrement()) // @unique 
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  login                 String  @unique
+  email                 String  @unique
+  email_is_ok           Boolean @default(false)
+  hash                  String
+  image_url             String  @default("")
+  gone_through_login    Boolean @default(false)
+  gone_through_register Boolean @default(false)
+  is_online             Boolean @default(false)
+  auth2f_enabled        Boolean @default(false)
+  is_ongame             Boolean @default(false)
+
+  // points    Int @default(0)
+  victories Int @default(0)
+  defeats   Int @default(0)
+
+  nb_of_games Int @default(0)
+
+  messages              Message[] // un utilisateur peut avoir plusieur message.
+  channels              Channel[] @relation("relationChannelUser") // relier le tableau par des clefs secondaire ?
+  // usersBlock           UserBlock[]
+  blockBy               User[]    @relation("UserFollows")
+  blokin                User[]    @relation("UserFollows")
+  // channelBlock         ChannelUserBlock[]
+  channelAdministrators Channel[] @relation("listChanUserAdmin")
+  channelBan            Channel[] @relation("listchanUserBan")
+  mutes                 Mute[]
+  inChannel             Channel[] @relation("listUserInChannel")
+
+  games_player1 Game[] @relation(name: "GamePlayer1")
+  games_player2 Game[] @relation(name: "GamePlayer2")
+
+  friends         User[] @relation(name: "friends")
+  friendsRelation User[] @relation(name: "friends")
+
+  @@map("users")
+}
+
+model Channel {
+  id             Int           @id @default(autoincrement()) // key unique
+  name           String        @unique
+  user           User[]        @relation("relationChannelUser") // relier le tableau par des clefs secondaire ?
+  mutes          Mute[]
+  ban            User[]        @relation("listchanUserBan")
+  // block        ChannelUserBlock[]
+  administrators User[]        @relation("listChanUserAdmin")
+  inChannel      User[]        @relation("listUserInChannel")
+  messages       Message[] // un channel peu avoir plusieur messages
+  channelOption  ChannelOption
+  owner          Int           @default(-1)
+  Protected      Boolean       @default(false)
+  Password       String        @default("")
+  createdAt      DateTime      @default(now())
+}
+
+model Message {
+  id        Int      @id @default(autoincrement()) // key unique
+  content   String
+  channel   Channel  @relation(fields: [channelId], references: [id]) // un message peu avoir seulement un channel
+  channelId Int // foreign key
+  user      User     @relation(fields: [userId], references: [id]) // un message peu avoir seulement un user
+  userId    Int // foreign key
+  createdAt DateTime @default(now())
+}
+
+model Mute {
+  id        Int       @id @default(autoincrement()) //key unique
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int // relation scalar field (used in the `@relation` attribute above)
+  channel   Channel   @relation(fields: [channelId], references: [id])
+  channelId Int // relation scalar field (used in the `@relation` attribute above)
+  unmuteAt  DateTime?
+}
+
+// model UserBlock{
+//       id Int @id @default(autoincrement()) //key unique
+//       user       User     @relation(fields: [userId], references: [id])
+//       userId     Int // relation scalar field (used in the `@relation` attribute above)
+// //   channel    Channel @relation(fields: [channelId], references: [id])
+// //   channelId Int // relation scalar field (used in the `@relation` attribute above)
+//       assignedAt DateTime @default(now())
+// //   //assignedBy String
+
+// //   @@id([userId, channelId])
+//}
+
+enum ChannelOption {
+  DM
+  PUBLIC
+  PRIVATE
+}
+
+model Game {
+  id        Int      @id @default(autoincrement())
+  gameId    String   @unique
+  gameMode  String   @default("")
+  createdAt DateTime @default(now())
+
+  player1Id Int // foreign key
+  player1   User @relation(name: "GamePlayer1", fields: [player1Id], references: [id])
+  player2Id Int // foreign key
+  player2   User @relation(name: "GamePlayer2", fields: [player2Id], references: [id])
+
+  winnerId Int?
+
+  score_winner Int @default(0)
+  score_loser  Int @default(0)
+
+  @@map("games")
+}
+
+// model UserBlock {
+//       id Int @id @default(autoincrement()) //key unique
+//       user       User     @relation(fields: [userId], references: [id])
+//       userId     Int // relation scalar field (used in the `@relation` attribute above)
+// //   channel    Channel @relation(fields: [channelId], references: [id])
+// //   channelId Int // relation scalar field (used in the `@relation` attribute above)
+//       assignedAt DateTime @default(now())
+// //   //assignedBy String
+// //   @@id([userId, channelId])
+//}
+
+// model Message {
+//   id       Int @id @default(autoincrement())
+//   users    User[]
+//   content  String
+//   dm       Boolean @default(true)
+// }
+
+// model User {
+//   id        Int      @id @default(autoincrement()) // key unique
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   login    String @unique
+//   email    String @unique
+//   hash     String
+//   messages Message[] //un utilisateur peut avoir plusieur message.
+//   channels Channel[] @relation("relationChannelUser")//relier le tableau par des clefs secondaire ?
+//   @@map("users")
+// }
+
+// model Channel {
+//   id    Int @id @default(autoincrement()) // key unique
+//   name  String @unique
+//   users User[] @relation("relationChannelUser")//relier le tableau par des clefs secondaire ?
+//   messages Message[]//un channel peu avoir plusieur messages
+//   createdAt  DateTime   @default(now())
+// }
+
+// model Message {
+//   id Int @id @default(autoincrement()) //key unique
+//   content String
+//   channel Channel @relation(fields: [channelId], references: [id]) // un message peu avoir seulement un channel
+//   channelId Int  // foreign key
+//   user      User   @relation(fields: [userId], references: [id]) // un message peu avoir seulement un user
+//   userId    Int   // foreign key
+//   createdAt  DateTime   @default(now())
+// }

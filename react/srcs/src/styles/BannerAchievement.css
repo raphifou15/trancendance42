@@ -1,0 +1,26 @@
+.banner__achievement{
+    height: 600px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner__achievement__img{
+    align-self: flex-start;
+}
+
+.banner__achievement__div{
+    margin: auto;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner__achievement__div__h2{
+    margin-top: 42px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 15px;
+}

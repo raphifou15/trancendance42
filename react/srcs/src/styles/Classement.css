@@ -1,0 +1,88 @@
+
+.classement{
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    width:300px;
+    margin: 10px;
+    /* height: 400px; */
+}
+
+.classement__div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.classement__div__h2{
+    margin-right: 5px;
+}
+
+
+.classement__table{
+    margin-top: 10px;
+    display:table;
+    border-collapse: collapse;
+}
+
+.classement__thead{
+    display: table-header-group;
+
+}
+
+.classement__body{
+    display: table-row-group;
+}
+
+.classement_tr{
+    border-bottom: 2px solid black;
+    height: 30px;
+}
+
+.classement_td_first{
+    text-align: left;
+    width:150px;
+}
+
+.classement_td_second{
+    text-align: center;
+    width: 3em;
+}
+
+
+/* .classement__table{
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+*/
+.classement_thead_td{
+    text-align: center;
+    /* margin-top: 20px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px; */
+}
+/*
+.classement_tr{
+    border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.classement_td_first{
+    width:9em;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.classement_td_second{
+    width:3em;
+}
+
+.classement__thead{
+    display: table-header-group;
+} */

@@ -1,0 +1,398 @@
+@keyframes openChatText {
+    from {width:50px;}
+    to {width: 95%;}
+}
+
+@keyframes openAction {
+    from {visibility: hidden;}
+    to {display: block;}
+}
+
+.chatbox__channel__form{
+    position: fixed;
+    height: 400px;
+    width:320px;
+    bottom: 0px;
+    right: 5%;
+    color:black;
+    border: solid 1px black;
+    background-color: white;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.chatbox__channel__form__div{
+    margin: 0;
+    padding: 0;
+    border-radius: 10px 100px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.chatbox__channel__form__title{
+    width: 100%;
+    border-radius: 6px 6px 0px 0px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0;
+    padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Poppins';
+    font-size: 15px;
+    background-color: rgb(12, 56, 105);
+}
+
+.chatbox__channel__form__h1{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.chatbox__channel__form__h1__name{
+    /* width: 130px; */
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.chatbox__channel__form__title h1{
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.chatbox__channel__form__title__cross:hover{
+    cursor:pointer;
+}
+
+.chatbox__channel__form__content__text{
+    height: 320px;
+}
+
+.chatbox__channel__form__div__input{
+    padding: 5px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: #334; */
+    background-color: rgb(12, 56, 105);
+}
+
+
+
+.chatbox__channel__form__div__input button{
+    border: none;
+    background-color: transparent;
+    cursor:pointer;
+}
+
+.chatbox__channel__form__input{
+    height: 30px;
+    align-self: center;
+    border:none;
+    border-radius: 20px;
+    padding: 5px;
+    width:100px;
+}
+
+.chatbox__channel__form__input[type=text]:focus{ 
+    outline: none;
+    font-size: 15px;
+    font-family: 'Poppins';
+}
+
+.chatbox__channel__form__input__on{
+    animation: openChatText;
+    animation-duration: 0.2s;
+    width:95%;
+}
+
+.chatbox__channel__form__title__action{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: flex-end; */
+}
+
+.chatbox__channel__form__title__point{
+    letter-spacing: 2px;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+.chatbox__channel__form__title__exit{
+    cursor: pointer;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 4px;
+}
+
+.chatbox__channel__form__title__invite{
+    cursor: pointer;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 4px;
+}
+
+.chatbox__channel__action__div{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    height: 40px;
+    width:  360px;
+    bottom: 410px;
+    right: 5%;
+    color:black;
+    /* border: solid 1px black; */
+    background-color: transparent;
+}
+
+.chatbox__channel__action__div__alone{
+    display: flex;
+    position: fixed;
+    height: 40px;
+    width: 40 px;
+    bottom: 410px;
+    right: 5%;
+    color:black;
+    margin: 0 !important;
+    /* border: solid 1px black; */
+    /* background-color: green; */
+}
+
+.chatbox__channel__action__div__one {
+    cursor:pointer;
+    margin-right: 5px;
+    margin-left: 5px;
+    height:40px;
+    width:40px;
+    border-radius: 100%;
+    background-color: rgb(28, 89, 158);
+    visibility: none;
+}
+
+.chatbox__channel__action__div__one__bis{
+    cursor:pointer;
+    /* margin-right: 5px;
+    margin-left: 5px; */
+    height:40px;
+    width:40px;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid  rgb(28, 89, 158);
+    visibility: none;
+}
+
+
+
+.chatbox__channel__action__div__one__bis .chatbox__inverse__color{
+    fill: rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img{
+    display: block;
+    margin: 27% auto;
+}
+
+.chatbox__channel__action__div__img__block:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid  rgb(28, 89, 158);
+}
+
+ .chatbox__channel__action__div__img__block:hover .chatbox__inverse__color{
+    fill: rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__unblock:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid  rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__unblock:hover .chatbox__inverse__color{
+    fill: rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__mute:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid  rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__mute:hover .chatbox__inverse__color{
+    fill: rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__unmute:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid  rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__unmute:hover .chatbox__inverse__color{
+    fill: rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__addadmin:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid  rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__addadmin:hover .chatbox__inverse__color{
+    fill: rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__removeadmin:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid  rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__removeadmin:hover .chatbox__inverse__color{
+    fill: rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__pass:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid  rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__pass:hover .chatbox__inverse__color{
+    fill: rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__ban:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid  rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__ban:hover .chatbox__inverse__color{
+    fill: rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__unban:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid  rgb(28, 89, 158);
+}
+
+.chatbox__channel__action__div__img__unban:hover .chatbox__inverse__color{
+    fill: rgb(28, 89, 158);
+}
+
+.chatbox__channel__owner{
+    width: 460px;
+    right: 4.2%;
+}
+
+.display__none{
+    display: none;
+}
+
+.chatbox__channel__action__on__hover{
+    display:none;
+}
+
+.chatbox__channel__action__div__img__block:hover .chatbox__channel__action__on__hover{
+    display:block;
+    position :absolute;
+    color: rgba(255, 255, 255, 0.8);
+    top: -45px;
+    background: rgb(28, 89, 158);
+    border-radius: 20%;
+    padding: 8px;
+}
+
+.chatbox__channel__action__div__img__unblock:hover .chatbox__channel__action__on__hover{
+    display:block;
+    position :absolute;
+    color: rgba(255, 255, 255, 0.8);
+    top: -45px;
+    background: rgb(28, 89, 158);
+    border-radius: 20%;
+    padding: 8px;
+    /* width: 90px; */
+    /* height: 60px; */
+
+}
+
+.chatbox__channel__action__div__img__mute:hover .chatbox__channel__action__on__hover{
+    display:block;
+    position :absolute;
+    color: rgba(255, 255, 255, 0.8);
+    top: -45px;
+    background: rgb(28, 89, 158);
+    border-radius: 20%;
+    padding: 8px;
+}
+
+.chatbox__channel__action__div__img__unmute:hover .chatbox__channel__action__on__hover{
+    display:block;
+    position :absolute;
+    color: rgba(255, 255, 255, 0.8);
+    top: -45px;
+    background: rgb(28, 89, 158);
+    border-radius: 20%;
+    padding: 8px;
+    /* width: 85px; */
+}
+
+.chatbox__channel__action__div__img__addadmin:hover .chatbox__channel__action__on__hover{
+    display:block;
+    position :absolute;
+    color: rgba(255, 255, 255, 0.8);
+    top: -68px;
+    background: rgb(28, 89, 158);
+    border-radius: 20%;
+    padding: 8px;
+    width: 80px;
+}
+
+.chatbox__channel__action__div__img__removeadmin:hover .chatbox__channel__action__on__hover{
+    display:block;
+    position :absolute;
+    color: rgba(255, 255, 255, 0.8);
+    top: -68px;
+    background: rgb(28, 89, 158);
+    border-radius: 20%;
+    padding: 8px;
+    width: 80px;
+}
+
+.chatbox__channel__action__div__img__pass:hover .chatbox__channel__action__on__hover{
+    display:block;
+    position :absolute;
+    color: rgba(255, 255, 255, 0.8);
+    top: -68px;
+    background: rgb(28, 89, 158);
+    border-radius: 20%;
+    padding: 8px;
+    width: 100px;
+}
+
+.chatbox__channel__action__div__img__ban:hover .chatbox__channel__action__on__hover{
+    display:block;
+    position :absolute;
+    color: rgba(255, 255, 255, 0.8);
+    top: -63px;
+    border: 1px solid rgb(28, 89, 158);
+    background: rgb(28, 89, 158);
+    border-radius: 20%;
+    padding: 5px;
+    width: 70px;
+    /* width: auto; */
+}
+
+.chatbox__channel__action__div__img__unban:hover .chatbox__channel__action__on__hover{
+    display:block;
+    position :absolute;
+    color: rgba(255, 255, 255, 0.8);
+    top: -63px;
+    /* text-align: center; */
+    border: 1px solid rgb(28, 89, 158);
+    background: rgb(28, 89, 158);
+    border-radius: 20%;
+    padding: 5px;
+}

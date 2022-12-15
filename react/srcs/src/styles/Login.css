@@ -1,0 +1,278 @@
+@keyframes lala1{
+    0% {
+		top: 10%;
+	}
+	5% {
+		top: 10%;
+	}
+	9% {
+		top: 24%;
+	}
+	13% {
+		top: 17%;
+	}
+	24.9% { 
+		top: 82%;
+	}
+	47% {
+		top: 37%;
+	}
+	52% {
+		top: 41%;
+	}
+	56% {
+		top: 64%;
+	}
+	58.1% { 
+		top: 54%;
+	}
+	70% {
+		top: 74%;
+	}
+	84% {
+		top: 12%;
+	}
+	91.3% { 
+		top: 18%;
+	}
+	100% {
+		top: 10%;
+	}
+
+}
+
+@keyframes lala2 {
+	0% {
+		top: 80%;
+	}
+	8.3% {
+		top: 51%;
+	}
+	20% {
+		top: 60%;
+	}
+	25% {
+		top: 34%;
+	}
+	41.5% {
+		top: 68%;
+	}
+	46% {
+		top: 36%;
+	}
+	52% {
+		top: 18%;
+	}
+	58.1% {
+		top: 53%;
+	}
+	66% {
+		top: 14%;
+	}
+	70% {
+		top: 20%;
+	}
+	74.7% {
+		top: 10%;
+	}
+	91.3% {
+		top: 10%;
+	}
+	100% {
+		top: 80%;
+	}
+}
+
+@keyframes ball {
+	0% {
+		top: 34%;
+		left: 52%;
+	}
+	8.3% {
+		top: 52%;
+		left: 90%;
+	}
+	24.9% { 
+		top: 85%;
+		left: 8%;
+	}
+	30% {
+		top: 96.5%;
+		left: 27%;
+	}
+	41.5% {
+		top: 70%;
+		left: 90%;
+	}
+	58.1% { 
+		top: 55%;
+		left: 8%;
+	}
+	74.7% { 
+		top: 13%;
+		left: 90%;
+	}
+	79% {
+		top: 1%;
+		left: 70%;
+	}
+	91.3% { 
+		top: 22%;
+		left: 8%;
+	}
+	100% { 
+		top: 34%;
+		left: 52%;
+	}
+}
+
+
+.font__game{
+	position: relative;
+	/* overflow: hidden; */
+    margin:0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/login_font.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-color: #F5F5F5;
+}
+
+
+.font__game__green{
+    position: absolute;
+    left:6%;
+    animation-name: lala1;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.font__game__blue{
+    position: absolute;
+    right:6%;
+    animation-name: lala2;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.font__game__ball{
+    position: absolute;
+    animation-name: ball;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.onboarding{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    
+    position: absolute;
+    width: 316.43px;
+    height: 463.03px;
+    left: calc(50% - 316.43px/2 + 0.21px);
+    top: calc(50% - 463.03px/2 - 0.48px);
+    
+    background: #E9EFFC;
+    border: 1px solid #17EBD1;
+    box-shadow: 0px 4px 4px rgba(249, 244, 244, 0.25);
+    border-radius: 20px;
+}
+
+.onboarding_div_title{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+
+    width: 76px;
+    height: 35px;
+}
+
+.onboarding__title{
+    width: 56px;
+    height: 15px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 15px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.05em;
+
+    color: #00BCC2;
+}
+
+.onboarding_logo{
+    width: 116.43px;
+    height: 78.03px;
+    margin-top: -40px;
+}
+
+.onboarding_button{
+    height: 75px;
+    color: #FAF6F6;
+    width: 316.43px;
+    background: #1BE684;
+    border: #1BE684;
+    border-radius: 0px 0px 20px 20px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 15px;
+    cursor: pointer;
+}
+
+.onboarding__text__up{
+    width: 56px;
+    height: 15px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+	margin-left: -2.5em;
+	margin-top: 1em;
+    letter-spacing: 0.05em;
+
+    color: #00BCC2;
+}
+
+.onboarding__text__down{
+    width: 56px;
+    height: 15px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+	margin-left: -1.5em;
+	margin-top: -5em;
+    letter-spacing: 0.05em;
+
+    color: #00BCC2;
+}

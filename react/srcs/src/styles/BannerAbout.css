@@ -1,0 +1,71 @@
+.banner__about{
+    background-image: url("../images/font_banner_about.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.banner__about__under{
+    display: flex;
+    flex-direction: row;
+    width: 950px;
+    justify-content: space-between;
+    text-align: center;
+    font-family: poppins;
+}
+
+.banner__about__under__div{
+    /*background-color: white;*/
+    border-radius: 20px;
+    /*box-shadow: 2px 2px 2px black;*/
+
+}
+
+.banner__about__under__div:hover{
+    background-color: black !important;
+    box-shadow: 2px 2px 2px black;
+}
+
+.banner__about__under__div:hover .banner__about__under__div__p{
+    background-color: black;
+    color:white;
+}
+
+.banner__about__under__div__p{
+    background-color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.banner__about__discover{
+    text-decoration: none;
+    margin-top:80px;
+    background: rgba(255, 255, 255, 0.8);
+    border:none;
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 20px;
+    line-height: 15px;
+    font-family: poppins;
+    color:black
+}
+
+.banner__about__discover:hover{
+    color:white;
+    background-color: black;
+}
+
+.banner__about__new{
+    /* background-image: url("../images/font_banner_about.jpg"); */
+    background-color: black;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    height: 600px;
+}

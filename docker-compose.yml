@@ -1,0 +1,63 @@
+version: '3.9'
+#db listens on 5432
+
+services:
+  db:
+    image: postgres
+    container_name: postgres
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+    volumes:
+       - data:/var/lib/postgresql/data
+    environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=${DB_PWD}
+        - POSTGRES_DB=nestjs
+    #command: bash -c "chmod 777 /var/lib/postgresql/data && "
+    networks:
+      - transcendence
+
+  backend:
+    image: node:lts-alpine
+    container_name: backend
+    working_dir: /backend
+    volumes:
+      - ./nestjs/srcs:/backend
+    ports:
+      - 8888:3000
+      - 3000:3000
+      - 5555:5555
+    command: sh -c "apk add bash && npm install && npm run build && npx prisma migrate deploy && npm run start:prod"
+    # command: sh -c "apk add bash && npm install && npx prisma migrate dev && npm run start:dev"
+    
+    # command: tail -f /dev/null
+    restart: unless-stopped
+    networks:
+      - transcendence
+
+  frontend:
+    image: node:lts-alpine
+    container_name: frontend
+    working_dir: /frontend
+    volumes:
+      - ./react/srcs:/frontend
+    ports:
+      - 9999:9999
+    #command: tail -f /dev/null
+    command: sh -c "apk add bash && npm install && npm run build && npm install -g serve && serve -s build -l 9999"
+    # command: sh -c "npm install && npm start"
+    
+    restart: unless-stopped
+    networks:
+      - transcendence
+
+volumes:  
+  data:
+    # driver_opts:
+    #   type: none
+    #   device: /mnt/nfs/homes/rkhelif/sgoinfre/trance/dbe
+    #   o: bind
+
+networks:
+  transcendence:

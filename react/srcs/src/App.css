@@ -1,0 +1,46 @@
+@keyframes animationInvitation{
+    from {right: 0px;}
+    to {right: 10%;}
+}
+
+
+.App__Play__pong__receive__invitation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top:40px;
+    right: 10%;
+    padding: 10px;
+    width:300px;
+    height: 120px;
+    border-radius: 20px;
+    color:whitesmoke;
+    background-color: rgb(16, 38, 71);
+    background-color: rgb(16, 38, 71);
+    font-family: 'Poppins';
+    animation-name: animationInvitation;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+}
+
+.App__Play__pong__receive__invitation__div{
+    margin-top: 10px;
+    width:200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.App__Play__pong__receive__invitation__p{
+    cursor: pointer;
+    padding: 8px;
+}
+
+.App__Play__pong__receive__invitation__p:hover{
+    border-radius: 20px;
+    background-color: whitesmoke;
+    color:rgb(16, 38, 71);
+    
+}

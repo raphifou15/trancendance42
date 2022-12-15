@@ -1,0 +1,407 @@
+@keyframes open {
+    from {height: auto;}
+    to {top: 50vh;}
+  }
+
+@keyframes openChatText {
+    from {width:50px;}
+    to {width: 95%;}
+}
+
+@-webkit-keyframes hiddenChat{
+    from {opacity: 0;}
+    to {opacity: 0;}
+}
+
+@keyframes hiddenChat{
+    from {opacity: 0;}
+    to {opacity: 0;}
+    
+}
+
+.chat__div{
+    height: auto;
+    width: 300px;
+    position: fixed;
+    background-color: rgb(34, 32, 32);
+    color:white;
+    right: 0%;
+    bottom: 0%;
+    text-align: center;
+    /* border: 1px solid black; */
+    font-family: 'Poppins';
+    font-weight: bold;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25); 
+}
+
+.chat__div2{
+    height: 50vh;
+    width: 300px;
+    position: fixed;
+    background-color: white;
+    color:rgb(34, 32, 32);
+    right: 0%;
+    bottom: 0%;
+    text-align: center;
+    border: 1px solid rgb(214, 214, 214); 
+    font-family: 'Poppins';
+    font-weight: bold;
+    animation: open;
+    animation-duration: 0.1s;
+    box-shadow: 4px 8px 8px 4px rgba(34, 32, 61, 0.349); 
+}
+
+.chat__div__open__menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+
+.chat__div__open__menu:hover{
+    background-color:rgb(34, 32, 32);
+    color:white;
+    cursor: pointer;
+}
+
+.chat__friends__title{
+    font-size: 16px;
+    background-color:rgb(34, 32, 32);
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.chat__friends_div{
+    margin-top: 10px;
+    height: 15vh;
+    overflow-y: scroll;
+}
+
+.chatbox__users{
+    display: flex;
+    justify-content: center;
+    width:100%;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.chatBox__circle__connect{
+    margin-right: 5px;
+    margin-top: 7px;
+    height: 10px;
+    width: 10px;
+    display: block;
+    border: 1px solid rgb(138, 201, 138);
+    background-color: #3fcdd6;
+    /* background-color: rgb(23, 197, 23); */
+    border-radius: 100%;
+}
+
+
+.chat__friends_div__p{
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* border-bottom: 1px solid black; */
+}
+
+.chat__friends__group{
+    font-size: 16px;
+    background-color: rgb(34, 32, 32);
+    color: white;
+}
+
+.none{
+    display: none;
+}
+
+.chatbox__form{
+    position: fixed;
+    height: 400px;
+    width:320px;
+    bottom: 0px;
+    right: 5%;
+    color:black;
+    border: solid 1px rgb(21, 42, 80);
+    background-color: white;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.chatbox__form__div{
+    border-radius: 10px 100px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.chatbox__form__div__h1{
+    width:150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form__title{
+    border-radius: 6px 6px 0px 0px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0;
+    padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Poppins';
+    font-size: 15px;
+    background-color: rgb(16, 38, 71);
+}
+
+.form__title h1{
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.form__title__profiles{
+    margin-top: 5.5px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.form__title__pong{
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.form__title__cross:hover
+{
+    cursor: pointer;
+}
+
+.form__title__block{
+    display: flex;
+}
+
+.form__title__block__tooltip{
+    width:150px;
+    height: 60px;
+    position: absolute;
+    font-family: 'Poppins';
+    font-weight: bold;
+    right: 10px;
+    top: -60px;
+    padding: 5px;
+    background-color: rgb(226, 214, 214);
+    border: 2px solid black;
+    border-radius: 10px;
+    visibility: hidden;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form__title__block__unblock__logo{
+    margin-top: 4px;
+    
+}
+
+.form__title__block__under:hover{
+    cursor: pointer;
+}
+
+.form__title__block__under:hover .form__title__block__tooltip{
+    visibility: visible;
+}
+
+.chatbox__form__content__text{
+    /* animation: hiddenChat;
+    animation-duration: 0.5s; */
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    scroll-snap-align: top;
+    scroll-behavior: smooth;
+    
+}
+
+.array__message__me__right{
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Poppins';
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.array__message__other__left{
+    width:100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: 5px;
+    font-family: 'Poppins';
+    font-size: 14px;
+}
+
+.array__message__size{
+    max-width: 80%;
+}
+
+.array__message__me__right__div{
+    word-wrap: break-word;
+    padding: 10px;
+    border:1px solid black;
+    border-radius: 15px;
+    background-color: rgb(16, 38, 71);
+    color:whitesmoke;
+}
+
+.array__message__other__left__h3{
+    margin-left: 5px;
+}
+
+.array__message__other__left__div{
+    word-wrap: break-word;
+    padding: 10px;
+    border:1px solid black;
+    border-radius: 15px;
+    background-color: rgb(12, 56, 105);
+    color:whitesmoke;
+    margin-left: 5px;
+}
+
+.chatbox__form__div__input{
+    padding: 5px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(16, 38, 71);
+}
+
+.chatbox__form__input{
+    height: 30px;
+    align-self: center;
+    border:none;
+    border-radius: 20px;
+    padding: 5px;
+    width:100px;
+}
+
+.chatbox__form__div__input button{
+    border: none;
+    background-color: transparent;
+    cursor:pointer;
+}
+
+.chatbox__form__input[type=text]:focus{ 
+    outline: none;
+    font-size: 15px;
+    font-family: 'Poppins';
+}
+
+.chatbox__form__input__on{
+    animation: openChatText;
+    animation-duration: 0.2s;
+    width:95%;
+}
+
+
+
+
+.chat__create__channel{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.chat__create__channel__title{
+    margin-right: 30px;
+    font-family: 'Poppins';
+    font-size: 16px;
+}
+
+.chat__channel__public__div{
+    margin-top: 10px;
+    height: 10vh;
+    overflow-y: scroll;
+}
+
+.chatbox__public__chan{
+    display: flex;
+    justify-content: flex-start;
+    width:100%;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+.chatbox__public__chan__name{
+    margin-left: 20px;
+}
+
+.chat__channel__private__div{
+    margin-top: 10px;
+    height: 10vh;
+    overflow-y: scroll;
+}
+
+.chatbox__private__chan{
+    display: flex;
+    justify-content: flex-start;
+    width:100%;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+.chatbox__private__chan__name{
+    margin-left: 20px;
+}
+
+.chatbox__public__chan__form{
+    display: flex;
+    padding:10px;
+    justify-content: center;
+    width:100%;
+    border-bottom: 1px solid black;
+}
+
+.chatbox__public__chan__form__input{
+    border: none;
+    width:95%;
+}
+
+.chatbox__public__chan__form__input[type=text]:focus{
+    outline: none;
+    font-size: 15px;
+    font-family: 'Poppins';
+}
+
+.chatbox__public__chan__form__button{
+    background: transparent;
+    border: none;
+}
+
+.form__title__block__unblock__logo{
+    margin-right: 15px;
+}
+
+.plus{
+    margin-top: 1%;
+    height: 20px;
+}
+
+.chatbox__form__div__input__div{
+    position: absolute;
+    bottom: 0;
+    left:-280px;
+}
+
+.chatbox__form__div__input__smiley{
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}

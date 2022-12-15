@@ -1,0 +1,15 @@
+.lastResults{
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    width:300px;
+    /* height: 400px; */
+    margin: 10px;
+    text-align: center;
+}
+
+.all_elem{
+    margin-top: 15px;
+    display:flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,40 @@
+
+/* .background_image {
+
+    background-image: url("../images/space.png");
+    background-size: cover;
+    height: 200vh;
+} */
+
+
+canvas {
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+    display: block;
+    position: absolute;
+}
+
+#background-layer {
+    z-index: 1
+}
+
+#object-layer {
+    z-index: 2
+}
+
+unavailableGame {
+    margin-right: auto;
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    display: block;
+}
+
+.backgroundColor {
+    /* background-color: black; */
+    background-image: url("../images/space.png");
+    background-size: cover;
+    height: 100vh;
+}
