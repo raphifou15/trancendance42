@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { UploadController } from 'src/uploads/upload.controller';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
@@ -10,7 +9,6 @@ import { UserService } from './user.service';
   // imports: [UserService],
   controllers: [UserController, UploadController],
   providers: [UserService, JwtService],
-  exports: [UserService]
+  exports: [UserService],
 })
-
 export class UserModule {}

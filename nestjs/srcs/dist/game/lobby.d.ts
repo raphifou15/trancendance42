@@ -1,0 +1,30 @@
+import { Socket } from 'socket.io';
+import { brickwallGameState, gameMode, gamePlayer, gameState } from './interfaces';
+import { Logger } from '@nestjs/common';
+import { brickwallGame } from './game-engine';
+import { GameService } from './game.service';
+import { UserService } from 'src/user/user.service';
+export declare class Lobby {
+    private readonly gameService;
+    private readonly userService;
+    logger: Logger;
+    id: string;
+    readonly createdAt: Date;
+    playerOne: gamePlayer;
+    playerTwo: gamePlayer;
+    playerNb: number;
+    gameMode: gameMode;
+    game: brickwallGame;
+    spectatorList: Array<Socket>;
+    constructor(gameMode: gameMode, gameService: GameService, userService: UserService);
+    addSpectator(spectator: Socket): void;
+    clearSpectator(): void;
+    addClient(player: gamePlayer): boolean;
+    clientIsInTheGame(client: Socket): boolean;
+    handleClientMessage(client: Socket, payload: string): void;
+    updatePlayerMovement(client: Socket, movement: string): void;
+    removeClient(client: Socket): void;
+    getLobbyGameMode(): gameMode;
+    displayGameState(): gameState | brickwallGameState;
+    handleGameEnd(): void;
+}

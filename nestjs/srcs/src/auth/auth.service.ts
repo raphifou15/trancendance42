@@ -1,12 +1,12 @@
 import { ForbiddenException, Injectable, Body } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import { AuthDto } from './dto';
 import { ChangeDto } from './dto';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { HttpService } from '@nestjs/axios';
+import { Prisma } from '@prisma/client';
 
 let id_g = -1;
 
@@ -21,7 +21,6 @@ export class AuthService {
   // private readonly logger = new Logger(AuthService.name)){}
 
   async signup(@Body() dto: AuthDto) {
-
     const hash = await bcrypt.hash(dto.password, 10);
 
     if (id_g > 0) {
@@ -44,7 +43,7 @@ export class AuthService {
         const token = (await this.signToken(user.id, user.email)).access_token;
         return token;
       } catch (error) {
-        if (error instanceof PrismaClientKnownRequestError) {
+        if (error instanceof Prisma.PrismaClientKnownRequestError) {
           if (error.code === 'P2002' && error.meta.target == 'login') {
             // console.log("IN LOGIN TAKEN");
             throw new ForbiddenException('Login taken');
@@ -79,8 +78,12 @@ export class AuthService {
     };
   }
 
-  async register(id: number, login: string, email: string, image_extension: string) {
-
+  async register(
+    id: number,
+    login: string,
+    email: string,
+    image_extension: string,
+  ) {
     // console.log('IN REGISTER (auth.service.ts)');
 
     const user = await this.prisma.user.findUnique({
@@ -98,7 +101,12 @@ export class AuthService {
           login: login,
           email: email,
           hash: '', // will be given later in Register Form
-          image_url: 'http://' + process.env.HOST + ':3000/uploads/' + login + image_extension,
+          image_url:
+            'http://' +
+            process.env.HOST +
+            ':3000/uploads/' +
+            login +
+            image_extension,
           // image_url: image_url,
           gone_through_login: true,
         },
@@ -123,9 +131,14 @@ export class AuthService {
       },
     });
     if (user)
-      return ({image_url: user.image_url, login: user.login, email: user.email, gone_through_login: user.gone_through_login, gone_through_register: user.gone_through_register});
-    else
-      return -1;
+      return {
+        image_url: user.image_url,
+        login: user.login,
+        email: user.email,
+        gone_through_login: user.gone_through_login,
+        gone_through_register: user.gone_through_register,
+      };
+    else return -1;
   }
 
   async get_user_by_id(id: string) {
@@ -301,7 +314,6 @@ export class AuthService {
     return user;
   }
 
-  
   async toggleLogin(id: string) {
     const user = await this.prisma.user.findUnique({
       where: {

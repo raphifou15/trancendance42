@@ -1,0 +1,56 @@
+import { Logger } from '@nestjs/common';
+import { Ball, bonus, brickwallGameState, gameState, player, racket, score } from './interfaces';
+export declare class classicGame {
+    width: number;
+    height: number;
+    gameBall: Ball;
+    leftRacket: racket;
+    rightRacket: racket;
+    gameInterval: NodeJS.Timeout;
+    EndScore: number;
+    Acceleration: number;
+    gameScore: score;
+    gameIsRunning: boolean;
+    lastContact: player;
+    logger: Logger;
+    constructor();
+    startGame(): void;
+    stopGame(): void;
+    isFinished(): boolean;
+    checkWinningCondition(): boolean;
+    gameLoop(): void;
+    private updateGameScore;
+    accelerateBall(Acceleration: number): void;
+    private checkRacketCollision;
+    private checkLeftBorderCollision;
+    private checkRightBorderCollision;
+    private checkTopBorderCollision;
+    private checkBottomBorderCollision;
+    dispatchGameState(): gameState;
+    updateRacketPosition(Racket: racket, movement: string): void;
+    resetBallPosition(): Ball;
+    reset(): void;
+    private computeHitFactor;
+    getLastContact(): player;
+    private updateLastContact;
+}
+export declare function clamp(circleCoord: number, rectLeft: number, rectRight: number): number;
+export declare class brickwallGame {
+    logger: Logger;
+    classic: classicGame;
+    maxBonusNumber: number;
+    bonusArray: Array<bonus | undefined>;
+    bonusInterval: NodeJS.Timeout;
+    constructor();
+    dispatchGameState(): brickwallGameState;
+    private bonusCanBeAdded;
+    private addNewBonus;
+    private eraseBonus;
+    brickwallGameLoop(): void;
+    computeBonusIntersection(bonus: bonus): boolean;
+    private applyBonus;
+    startGame(): void;
+    stopGame(): void;
+    reset(): void;
+    spectate(): void;
+}

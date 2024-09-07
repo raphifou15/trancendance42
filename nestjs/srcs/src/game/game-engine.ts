@@ -22,7 +22,9 @@ export class classicGame {
 
   leftRacket: racket;
   rightRacket: racket;
-  gameInterval: NodeJS.Timer = null;
+  // gameInterval: NodeJS.Timer = null;
+
+  gameInterval: NodeJS.Timeout = null;
 
   EndScore = 12;
   Acceleration = 1e-5;
@@ -263,7 +265,8 @@ export class brickwallGame {
 
   maxBonusNumber: number = 3;
   bonusArray: Array<bonus | undefined> = new Array(this.maxBonusNumber);
-  bonusInterval: NodeJS.Timer;
+  // bonusInterval: NodeJS.Timer;
+  bonusInterval: NodeJS.Timeout;
 
   constructor() {
     this.classic = new classicGame();

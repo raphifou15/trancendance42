@@ -10,7 +10,7 @@ CREATE TABLE "users" (
     "email" TEXT NOT NULL,
     "email_is_ok" BOOLEAN NOT NULL DEFAULT false,
     "hash" TEXT NOT NULL,
-    "image_url" TEXT NOT NULL DEFAULT E'',
+    "image_url" TEXT NOT NULL DEFAULT '',
     "gone_through_login" BOOLEAN NOT NULL DEFAULT false,
     "gone_through_register" BOOLEAN NOT NULL DEFAULT false,
     "is_online" BOOLEAN NOT NULL DEFAULT false,
@@ -30,7 +30,7 @@ CREATE TABLE "Channel" (
     "channelOption" "ChannelOption" NOT NULL,
     "owner" INTEGER NOT NULL DEFAULT -1,
     "Protected" BOOLEAN NOT NULL DEFAULT false,
-    "Password" TEXT NOT NULL DEFAULT E'',
+    "Password" TEXT NOT NULL DEFAULT '',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Channel_pkey" PRIMARY KEY ("id")
@@ -61,7 +61,7 @@ CREATE TABLE "Mute" (
 CREATE TABLE "games" (
     "id" SERIAL NOT NULL,
     "gameId" TEXT NOT NULL,
-    "gameMode" TEXT NOT NULL DEFAULT E'',
+    "gameMode" TEXT NOT NULL DEFAULT '',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "player1Id" INTEGER NOT NULL,
     "player2Id" INTEGER NOT NULL,
@@ -157,10 +157,10 @@ CREATE UNIQUE INDEX "_listUserInChannel_AB_unique" ON "_listUserInChannel"("A", 
 CREATE INDEX "_listUserInChannel_B_index" ON "_listUserInChannel"("B");
 
 -- AddForeignKey
-ALTER TABLE "Message" ADD CONSTRAINT "Message_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Message" ADD CONSTRAINT "Message_channelId_fkey" FOREIGN KEY ("channelId") REFERENCES "Channel"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Message" ADD CONSTRAINT "Message_channelId_fkey" FOREIGN KEY ("channelId") REFERENCES "Channel"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Message" ADD CONSTRAINT "Message_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Mute" ADD CONSTRAINT "Mute_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

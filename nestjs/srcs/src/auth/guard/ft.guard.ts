@@ -1,4 +1,9 @@
-import { CanActivate, ExecutionContext, Injectable, Logger } from '@nestjs/common';
+import {
+  CanActivate,
+  ExecutionContext,
+  Injectable,
+  Logger,
+} from '@nestjs/common';
 import { AuthGuard, IAuthModuleOptions } from '@nestjs/passport';
 
 // @Injectable()
@@ -21,9 +26,8 @@ import { AuthGuard, IAuthModuleOptions } from '@nestjs/passport';
 
 @Injectable()
 export class FortyTwoAuthGuard extends AuthGuard('ft') {
-	private readonly logger = new Logger(FortyTwoAuthGuard.name)
-	ici(){	
-		// this.logger.log("IN FT_GUARD");
-	}
-	
+  private readonly logger = new Logger(FortyTwoAuthGuard.name);
+  ici() {
+    this.logger.log('IN FT_GUARD');
+  }
 }

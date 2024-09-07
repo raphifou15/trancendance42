@@ -1,4 +1,4 @@
-import { Strategy, Profile, VerifyCallback } from 'passport-42';
+import Strategy from 'passport-42';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, Inject } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -31,9 +31,10 @@ export class FortyTwoStrategy extends PassportStrategy(Strategy, 'ft') {
   async validate(
     accessToken: string,
     refreshToken: string,
-    profile: Profile, // la ou est stocker toutes les donner uilisateur
-    cb: VerifyCallback,
+    profile: any, // la ou est stocker toutes les donner uilisateur
+    cb: Function,
   ): Promise<any> {
+    console.log('IN VALIDATE STRAT');
     //   const { data } = await axios.get('https://api.intra.42.fr/v2/me', {
     // 	headers: { Authorization: `Bearer ${accessToken}` },
     // });
@@ -47,6 +48,7 @@ export class FortyTwoStrategy extends PassportStrategy(Strategy, 'ft') {
     // providers.
     // console.log('IN VALIDATE STRAT');
     // this.logger.log("IN VALIDATE STRAT");
+    console.log('lala');
     cb(null, profile); // call back redirect dans le controller login42/redirect. stock profile dans la request.user
   }
 }

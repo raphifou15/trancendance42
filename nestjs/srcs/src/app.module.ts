@@ -28,10 +28,19 @@ import { JwtGuard } from './auth/guard/jwt.guard';
     ChatModule,
     PrismaModule,
 
-    ThrottlerModule.forRoot({
-      ttl: 5,
-      limit: 800,
-    }),
+    // ThrottlerModule.forRoot({
+    //   throttlers: {
+    //     ttl: 5,
+    //     limit: 800,
+    //   },
+    // }),
+
+    ThrottlerModule.forRoot([
+      {
+        ttl: 5,
+        limit: 800,
+      },
+    ]),
 
     MulterModule.register({ dest: './uploads' }),
     // MulterModule.registerAsync({
