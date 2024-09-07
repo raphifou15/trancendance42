@@ -1,5 +1,12 @@
 # trancendance42
 
+### Vidéo de présentation
+
+<video width="640" height="360" controls>
+  <source src="https://www.youtube.com/watch?v=GV_ROvB304o" type="video/mp4">
+  Votre navigateur ne supporte pas la lecture de vidéos.
+</video>
+
 ## Introduction
 
 Création d'un site web pour un jeu en ligne « PONG », avec un chat privé et public ainsi qu'une interface utilisateur
