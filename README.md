@@ -1,60 +1,63 @@
 # trancendance42
 
-// "@hapi/joi": "^17.1.1",
-// "@nestjs/passport": "^8.2.2",
-// "@nestjs/typeorm": "^9.0.0",
-// "@prisma/client": "^3.15.2",
-// "@types/cookie": "^0.5.1",
-// "@types/cron": "^2.0.0",
-// "@types/hapi\_\_joi": "^17.1.8",
-// "@types/nodemailer": "^6.4.5",
-// "argon2": "^0.28.5",
-// "axios": "^0.27.2",
-// "bcrypt": "^5.0.1",
-// "class-transformer": "^0.5.1",
-// "class-validator": "^0.13.2",
-// "cookie-parser": "^1.4.6",
-// "dotenv": "^16.0.1",
-// "multer": "^1.4.5-lts.1",
-// "node-fetch": "^2.6.7",
-// "nodemailer": "^6.7.7",
-// "passport": "^0.6.0",
-// "passport-42": "^1.2.6",
-// "passport-jwt": "^4.0.0",
-// "passport-local": "^1.0.0",
-// "passport-oauth2": "^1.6.1",
-// "pg": "^8.7.3",
-// "reflect-metadata": "^0.1.13",
-// "rimraf": "^3.0.2",
-// "rxjs": "^7.2.0",
-// "swagger-ui-express": "^4.4.0",
-// "typeorm": "^0.3.7",
-// "uuid": "^8.3.2",
-// "uuidv4": "^6.2.13"
+## Introduction
 
-// "@nestjs/schematics": "^8.0.0",
-// "@types/bcrypt": "^5.0.0",
-// "@types/express": "^4.17.13",
-// "@types/jest": "27.5.0",
-// "@types/multer": "^1.4.7",
-// "@types/node": "^16.11.43",
-// "@types/node-fetch": "^2.6.2",
-// "@types/passport-jwt": "^3.0.6",
-// "@types/passport-local": "^1.0.34",
-// "@types/supertest": "^2.0.11",
-// "@typescript-eslint/eslint-plugin": "^5.0.0",
-// "@typescript-eslint/parser": "^5.0.0",
-// "eslint": "^8.0.1",
-// "eslint-config-prettier": "^8.3.0",
-// "eslint-plugin-prettier": "^4.0.0",
-// "file-loader": "^6.2.0",
-// "jest": "28.0.3",
-// "prettier": "^2.3.2",
-// "prisma": "^3.15.2",
-// "source-map-support": "^0.5.20",
-// "supertest": "^6.1.3",
-// "ts-jest": "28.0.1",
-// "ts-loader": "^9.2.3",
-// "ts-node": "^10.0.0",
-// "tsconfig-paths": "4.0.0",
-// "typescript": "^4.3.5"
+Création d'un site web pour un jeu en ligne « PONG », avec un chat privé et public ainsi qu'une interface utilisateur
+
+## Technologies utilisées
+
+- React
+- NestJs
+- Typescrypt
+- Prisma
+- PostgreSQL
+- CSS
+- Docker
+
+### Description du projet
+
+Le site doit être muni d'un chat, d'un jeu Pong, d'un système de compte utilisateur, et d'un système de sécurité.
+
+### Le chat
+
+- Créer des canaux (salles de chat) : publics, privés, ou protégés par un mot de passe.
+- Propriétaire du canal:
+  - L'utilisateur qui crée un nouveau canal devient automatiquement le propriétaire du canal.
+  - Peut définir un mot de passe pour accéder au canal, le modifier ou le supprimer.
+  - Celui qui est administrateur du canal. Il peut définir d'autres utilisateurs comme administrateurs.
+  - Les administrateurs d'un canal peuvent bannir ou rendre muets des utilisateurs pour une durée limitée.
+    - Envoyer des messages directs à d'autres utilisateurs.
+    - Bloquer d'autres utilisateurs.
+    - Ne plus voir les messages provenant du compte bloqué.
+    - Inviter d'autres utilisateurs à jouer à une partie de Pong via l'interface de chat.
+    - Pouvoir accéder aux profils des autres joueurs via l'interface de chat.
+
+### Le jeux Pong
+
+- Jouer une partie de Pong en direct contre un autre joueur directement sur le site.
+- Système de matchmaking
+
+- L'utilisateur peut rejoindre une file d'attente jusqu'à ce qu'il soit automatiquement associé à un autre joueur.
+- Jeu en canvas
+- Options de personnalisation
+  Par exemple, des power-ups ou différentes cartes.
+- Sélectionner une version par défaut du jeu sans fonctionnalités supplémentaires s'il le souhaite.
+- Le jeu doit être responsive.
+
+### Compte utilisateur
+
+- Utilisation du système OAuth de l'intranet 42.
+- L'utilisateur doit pouvoir télécharger un avatar.
+- L'utilisateur doit pouvoir activer l'authentification à deux facteurs.
+- L'utilisateur doit pouvoir ajouter d'autres utilisateurs comme amis et voir leur statut actuel (en ligne, hors ligne, en jeu, etc.).
+- Les statistiques doivent être affichées sur le profil utilisateur, telles que : victoires et défaites, niveau du classement, succès, etc.
+- L'utilisateur doit avoir un historique des matchs comprenant les parties en 1v1, le classement, et d'autres informations utiles.
+- Toute personne connectée doit pouvoir consulter cet historique.
+
+### Sécurité
+
+- Tout mot de passe stocké doit être haché.
+- Utiliser un algorithme de hachage de mot de passe robuste.
+- Le site web doit être protégé contre les injections SQL.
+- Implémenter une validation côté serveur pour les formulaires et toute entrée utilisateur.
+- Toute information sensible, telles que des identifiants, clés API, variables d'environnement, etc., doit être stockée localement dans un fichier .env et ignorée par git.
