@@ -2,10 +2,8 @@
 
 ## Vidéo de présentation
 
-[![Aperçu de la vidéo](transcendence.png)](https://www.youtube.com/watch?v=GV_ROvB304o)
-
-  <source src="https://www.youtube.com/watch?v=GV_ROvB304o" type="video/mp4">
-</video>
+- Clicker sur la photo pour voir la vidéo
+  [![Aperçu de la vidéo](transcendence.png)](https://www.youtube.com/watch?v=GV_ROvB304o)
 
 ## Introduction
 
