@@ -1,6 +1,6 @@
 # trancendance42
 
-### Vidéo de présentation
+## Vidéo de présentation
 
 <video width="640" height="360" controls>
   <source src="https://www.youtube.com/watch?v=GV_ROvB304o" type="video/mp4">
